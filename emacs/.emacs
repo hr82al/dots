@@ -75,12 +75,24 @@
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (progn(company-mode))))
 
+
 (add-to-list 'auto-mode-alist '("\\.rs\\'" .  rust-ts-mode))
 (add-hook 'rust-ts-mode-hook
 	  (lambda ()
 	    (eglot-ensure)
 	    (company-mode 1)
 	    ))
+
+(add-to-list 'auto-mode-alist '("\\.ts\\'" .  typescript-ts-mode))
+(add-hook 'typescript-ts-mode-hook
+	  (lambda ()
+	    (eglot-ensure)
+	    (company-mode 1)
+	    (setq indent-tabs-mode nil)
+	    (setq tab-width 2)
+	    (setq typescript-ts-mode-indent-offset 2)
+	    ))
+
 (global-set-key (kbd "C-<tab>") #'company-indent-or-complete-common)
 
 
