@@ -5,15 +5,24 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(tango-dark))
  '(package-selected-packages
-   '(company-flx helm company-fuzzy elisp-ts-mode company tree-sitter typescript-mode use-package eglot)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight regular :height 143 :width normal)))))
+   '(company-flx helm company-fuzzy elisp-ts-mode company tree-sitter typescript-mode use-package eglot))
+ '(tool-bar-mode nil))
 
-(menu-bar-mode 0)
+(cond
+ ((string-equal system-type "darwin") ; Mac OS X
+  (progn
+    (setq mac-option-key-is-meta nil)
+    (setq mac-command-key-is-meta t)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil)
+    (custom-set-faces
+     '(default ((t (:family "Liberation Mono" :foundry "nil" :slant normal :weight regular :height 180 :width normal)))))))
+ ((string-equal system-type "gnu/linux") ; linux
+  (progn
+    (menu-bar-mode 0)
+    (custom-set-faces
+     '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight regular :height 143 :width normal))))))))
+
 (tool-bar-mode 0)
 
 
@@ -108,3 +117,4 @@
 (setq ido-create-new-buffer 'always)
 (setq ido-file-extensions-order '(".ts" ".txs" ".js" ".jsx" ".org" ".txt" ".py" ".emacs" ".xml" ".el" ".ini" ".cfg" ".cnf"))
 (setq ido-ignore-extensions t)
+
