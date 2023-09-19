@@ -72,6 +72,8 @@
         company-fuzzy-trigger-symbols '("." "->" "<" "\"" "'" "@"))
   :ensure t)
 
+(setq company-idle-delay 0.5)
+
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (progn(company-mode))))
 
