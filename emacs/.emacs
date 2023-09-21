@@ -21,7 +21,7 @@
   (progn
     (menu-bar-mode 0)
     (custom-set-faces
-     '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight regular :height 143 :width normal))))))))
+     '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight regular :height 143 :width normal)))))))
 
 (tool-bar-mode 0)
 
@@ -163,11 +163,10 @@
 (setq ido-ignore-extensions t)
 
 (put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight regular :height 143 :width normal)))))
+
+(setenv "QC" "/home/pd/.config/qtile/config.py")
+(setenv "EC" "/home/pd/.emacs")
+
